@@ -60,8 +60,7 @@ let c_space_errors=1
 
 " Enable 80 column line
 set colorcolumn=+1
-set colorcolumn=+1,+2
-highlight ColorColumn ctermbg=grey guibg=grey
+highlight ColorColumn ctermbg=white guibg=white
 
 " Remember last position of cursor in a file
 if has("autocmd")
@@ -76,6 +75,9 @@ let g:mapleader = ";"
 " Fast saving and save+close
 nmap <leader>w :w<cr><cr>
 nmap <leader>q :wq!<cr>
+
+" Clear extra whitespaces on saving file buffer
+autocmd BufWritePre * :%s/\s\+$//e
 
 " Enable color syntax highlighting
 syntax on
