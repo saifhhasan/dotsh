@@ -51,8 +51,8 @@ $ git checkout master
 # Pull latest changes from remote
 $ git pull origin master
 
-# Rebase your branch onto master and merge any conflicts if any
-$ git reabse <test_branch>
+# Merge your branch onto master and resolve conflicts if any
+$ git merge <test_branch>
 
 # Push out your changes
 $ git push
