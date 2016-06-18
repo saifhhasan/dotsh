@@ -44,6 +44,9 @@ Temporarily keep aside local changes
 $ hg shelve
 $ hg shelve -n <name>
 
+# List all shelved items
+$ hg shelve --list
+
 # Get back the previously shelved changes
 $ hg unshelve
 $ hg unshelve <name>
