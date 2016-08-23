@@ -38,6 +38,9 @@ set showmatch         " flashes matching paren when one is typed
 set showmode          " show editing mode in status (-- INSERT --)
 set ruler             " show cursor position
 
+" enable mouse scroll
+set mouse=a
+
 " Advanced
 set ruler
 set undolevels=1000   " number of undos stored
