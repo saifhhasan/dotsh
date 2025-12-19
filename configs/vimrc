@@ -41,6 +41,21 @@ set ruler             " show cursor position
 " enable mouse scroll
 set mouse=a
 
+" Clipboard integration
+set clipboard=unnamed,unnamedplus
+
+" Performance improvements
+set lazyredraw        " Don't redraw while executing macros
+set ttyfast           " Faster redrawing
+set updatetime=300    " Faster completion (default is 4000ms)
+
+" Quality of life improvements
+set wildmenu          " Better command-line completion
+set wildmode=longest:full,full
+set hidden            " Allow hidden buffers with unsaved changes
+set splitbelow        " Open horizontal splits below
+set splitright        " Open vertical splits to the right
+
 " Advanced
 set ruler
 set undolevels=1000   " number of undos stored
@@ -79,8 +94,87 @@ let g:mapleader = ";"
 nmap <leader>w :w<cr><cr>
 nmap <leader>q :wq!<cr>
 
+" Clear search highlighting with Esc
+nnoremap <silent> <Esc><Esc> :nohlsearch<CR>
+
 " Clear extra whitespaces on saving file buffer
 autocmd BufWritePre * :%s/\s\+$//e
 
 " Enable color syntax highlighting
 syntax on
+
+" ============================================================================
+" Modern Plugin Setup using vim-plug
+" ============================================================================
+" To install vim-plug, run:
+" curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
+"     https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+"
+" Then open vim and run :PlugInstall
+
+" Uncomment below to enable plugins
+" call plug#begin('~/.vim/plugged')
+"
+" " Essential plugins
+" Plug 'tpope/vim-sensible'           " Sensible defaults
+" Plug 'tpope/vim-fugitive'           " Git integration
+" Plug 'tpope/vim-commentary'         " Easy commenting (gc)
+" Plug 'tpope/vim-surround'           " Manipulate surrounding chars
+" Plug 'tpope/vim-repeat'             " Better repeat with .
+"
+" " File navigation
+" Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+" Plug 'junegunn/fzf.vim'             " Fuzzy finder
+" Plug 'preservim/nerdtree'           " File tree explorer
+" Plug 'ryanoasis/vim-devicons'       " File icons (requires Nerd Font)
+"
+" " Code quality
+" Plug 'dense-analysis/ale'           " Async linting
+" Plug 'airblade/vim-gitgutter'       " Git diff in gutter
+"
+" " Status line
+" Plug 'vim-airline/vim-airline'      " Better status line
+" Plug 'vim-airline/vim-airline-themes'
+"
+" " Color schemes
+" Plug 'morhetz/gruvbox'              " Gruvbox color scheme
+" Plug 'joshdick/onedark.vim'         " Onedark color scheme
+" Plug 'arcticicestudio/nord-vim'     " Nord color scheme
+" Plug 'dracula/vim', { 'as': 'dracula' }  " Dracula color scheme
+"
+" call plug#end()
+
+" ============================================================================
+" Plugin Configuration
+" ============================================================================
+
+" FZF mappings (uncomment when plugin is installed)
+" nnoremap <C-p> :Files<CR>
+" nnoremap <leader>b :Buffers<CR>
+" nnoremap <leader>f :Rg<CR>
+
+" NERDTree mappings (uncomment when plugin is installed)
+" nnoremap <leader>n :NERDTreeToggle<CR>
+" nnoremap <leader>nf :NERDTreeFind<CR>
+
+" ALE configuration (uncomment when plugin is installed)
+" let g:ale_linters = {
+" \   'javascript': ['eslint'],
+" \   'python': ['flake8', 'pylint'],
+" \   'go': ['gopls'],
+" \}
+" let g:ale_fixers = {
+" \   '*': ['remove_trailing_lines', 'trim_whitespace'],
+" \   'javascript': ['eslint'],
+" \   'python': ['black', 'isort'],
+" \}
+" let g:ale_fix_on_save = 1
+
+" Airline configuration (uncomment when plugin is installed)
+" let g:airline#extensions#tabline#enabled = 1
+" let g:airline_powerline_fonts = 1
+
+" Color scheme (uncomment when plugin is installed)
+" set termguicolors
+" colorscheme gruvbox
+" set background=dark
